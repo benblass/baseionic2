@@ -1,7 +1,6 @@
 import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {LoginPage} from './pages/login/login';
-
 import {AuthService} from './services/authService';
 
 

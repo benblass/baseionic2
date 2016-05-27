@@ -7,8 +7,8 @@ import {AuthService} from '../../services/authService';
 })
 export class ProfilePage {
 
-	constructor(private auth = AuthService){
-		
+	constructor(private auth: AuthService){
+
 	}
 
 }

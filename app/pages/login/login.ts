@@ -12,9 +12,11 @@ export class LoginPage {
 	authType: string = "login";
 
   constructor(private auth: AuthService, private nav: NavController) {
-  	if (this.auth.isAuthenticated) {
-  		this.auth.authStatus.subscribe(data => this.changeRootifAuth());
-  	}
+  		this.auth.authStatusChange.subscribe(data => this.changeRootifAuth());
+			if (this.auth.isAuthenticated) {
+				this.nav.setRoot(TabsPage);
+			}
+
   }
 
   changeRootifAuth() {
