@@ -1,9 +1,7 @@
-import {Page, NavController} from 'ionic-angular';
+import {Page, Modal, NavController, ViewController} from 'ionic-angular';
 import {FORM_DIRECTIVES} from '@angular/common';
 import {AuthService} from '../../services/authService';
 import {TabsPage} from '../tabs/tabs';
-
-
 
 @Page({
   templateUrl: 'build/pages/login/login.html',
@@ -28,6 +26,29 @@ export class LoginPage {
   }
 
   renew() {
-  	//Show modal for renewal
+	  let modal = Modal.create(forgottenModal);
+	  this.nav.present(modal);
   }
+}
+
+@Page({
+	templateUrl: 'build/pages/login/forgotten.html',
+})
+class forgottenModal {
+
+	message: string = null;
+
+	constructor(private viewCtrl: ViewController, private auth: AuthService) {
+	}
+
+	sendRenew() {
+		this.auth.renewpass();
+		this.message = "Email sent...check your inbox !";
+		setTimeout(() => this.dismiss(), 3000);
+
+	}
+
+	dismiss() {
+		this.viewCtrl.dismiss();
+	}
 }
