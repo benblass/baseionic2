@@ -6,13 +6,15 @@ Check branches for different authentication services implementations.
 Soon to be available branches:
 
 
--firebase
--django-rest-authentication
+- firebase
+- django-rest-authentication
 
 
 ###Configuration
-ionic 2.0.0-beta.25
-ionic-angular 2.0.0-beta.7
+
+
+- ionic 2.0.0-beta.25
+- ionic-angular 2.0.0-beta.7
 
 ###installation
 
