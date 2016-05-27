@@ -2,9 +2,9 @@ import {Page} from 'ionic-angular';
 
 
 @Page({
-  templateUrl: 'build/pages/page1/page1.html',
+  templateUrl: 'build/pages/home/home.html',
 })
-export class Page1 {
+export class HomePage {
   constructor() {
 
   }

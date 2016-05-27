@@ -1,0 +1,71 @@
+<ion-content class="login-container" *ngIf="!auth.isAuthenticated" scroll="false">
+	<ion-row>
+		<ion-col class="header text-center">
+			<!--logo-->
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col>
+			<div padding>
+				<ion-segment [(ngModel)]="authType">
+					<ion-segment-button value="login">
+						Login
+					</ion-segment-button>
+					<ion-segment-button value="signup">
+						Signup
+					</ion-segment-button>
+				</ion-segment>
+			</div>
+
+			<div [ngSwitch]="authType">
+				<form *ngSwitchWhen="'login'" #loginCreds="ngForm" (ngSubmit)="auth.login(loginCreds.value)">
+					<ion-item>
+						<ion-label>Username</ion-label>
+						<ion-input type="text" ngControl="username"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-label>Password</ion-label>
+						<ion-input type="password" ngControl="password"></ion-input>
+					</ion-item>
+
+					<div padding class="text-center">
+						<button block type="submit" class="btn-login">Login</button>
+						<span class="txt-forgot" (click)="renew()">Forgot Password ?</span>
+					</div>
+				</form>
+
+				<form *ngSwitchWhen="'signup'" #loginCreds="ngForm" (ngSubmit)="auth.register(loginCreds.value)">
+					<ion-item>
+						<ion-label>Username</ion-label>
+						<ion-input type="text" ngControl="username"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-label>Email</ion-label>
+						<ion-input type="email" ngControl="email"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-label>Password</ion-label>
+						<ion-input type="password" ngControl="password1"></ion-input>
+					</ion-item>					<ion-item>
+						<ion-label>Confirm Password</ion-label>
+						<ion-input type="password" ngControl="password2"></ion-input>
+					</ion-item>
+
+					<div padding class="text-center">
+						<button block type="submit" class="btn-signup">Sign-up</button>
+					</div>
+				</form>
+			</div>
+			<div padding>
+				<p *ngIf="auth.autherror" class="error">{{ auth.autherror._body }}</p>
+			</div>
+		</ion-col>
+	</ion-row>
+</ion-content>
+
+<ion-content *ngIf="auth.isAuthenticated">
+	<h1>Welcome Back !</h1>
+</ion-content>
+
+
+
