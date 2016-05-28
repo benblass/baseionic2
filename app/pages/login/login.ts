@@ -43,6 +43,14 @@ export class LoginPage {
 	  let modal = Modal.create(forgottenModal);
 	  this.nav.present(modal);
   }
+
+  onSegmentChanged() {
+  	this.errorMessage = "";
+  }
+
+  onInput() {
+  	this.errorMessage = "";	
+  }
 }
 
 

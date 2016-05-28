@@ -7,7 +7,7 @@
 	<ion-row>
 		<ion-col>
 			<div padding>
-				<ion-segment [(ngModel)]="authType">
+				<ion-segment [(ngModel)]="authType" (change)="onSegmentChanged()">
 					<ion-segment-button value="login">
 						Login
 					</ion-segment-button>
@@ -17,7 +17,7 @@
 				</ion-segment>
 			</div>
 
-			<div [ngSwitch]="authType">
+			<div [ngSwitch]="authType" (keyup)="onInput()">
 				<form *ngSwitchWhen="'login'" #loginCreds="ngForm" (ngSubmit)="auth.loginEmail(loginCreds.value)">
 					<ion-item>
 						<ion-label>Email</ion-label>

@@ -11,4 +11,8 @@ export class TabsPage {
   // should be each tab's root Page
   profileRoot: any = ProfilePage;
   homeRoot: any = HomePage;
+
+  constructor() {
+  	
+  }
 }
