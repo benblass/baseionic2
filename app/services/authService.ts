@@ -15,12 +15,12 @@ export class AuthService {
 		this.authStatusChange = new EventEmitter();
 	}
 
-	login() {
+	login(credentials) {
 		this.isAuthenticated = true;
 		this.authStatusChange.next(true);
 	}
 
-	register() {}
+	register(credentials) {}
 
 	renewpass() {}
 

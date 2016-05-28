@@ -10,6 +10,7 @@ import {TabsPage} from '../tabs/tabs';
 export class LoginPage {
 
 	authType: string = "login";
+	errorMessage: string = null;
 
   constructor(private auth: AuthService, private nav: NavController) {
   		this.auth.authStatusChange.subscribe(data => this.changeRootifAuth());
@@ -27,9 +28,26 @@ export class LoginPage {
   	}
   }
 
+  registerValidate(credentials) {
+  	if (credentials.password1 == credentials.password2) {
+			credentials.password = credentials.password1;
+			this.auth.register(credentials);
+  	} else {
+  		this.errorMessage = "Passwords do not match..."
+  	}
+  }
+
   renew() {
 	  let modal = Modal.create(forgottenModal);
 	  this.nav.present(modal);
+  }
+
+  onSegmentChanged() {
+	  this.errorMessage = "";
+  }
+
+  onInput() {
+  	this.errorMessage = "";
   }
 }
 
