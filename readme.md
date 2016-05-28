@@ -3,31 +3,25 @@
 Provides boilerplate code for a Ionic2 application with authentication interface.
 Check branches for different authentication services implementations.
 
-Soon to be available branches:
-
-
-- firebase
-- django-rest-authentication
-
 ---
-You are on the FIREBASE branch
-Pending the release of Firebase2 with SDK 3 of Firebase, the authentication providers will work only with projects created in the legacy console of firebase [https://ww.firebase.com]. (You can upgrade your project to the new console after creation and keep functionality).
+You are on the FIREBASE branch.
+
+Pending the release of Firebase2 with SDK 3 of Firebase, the authentication providers will work only with projects created in the legacy console of firebase [https://www.firebase.com]. (You can upgrade your project to the new console after creation and keep functionality).
 ---
 
-###Configuration
+##Configuration
 
 - ionic 2.0.0-beta.25
 - ionic-angular 2.0.0-beta.7
 - Firebase2 2.4.2
 
-###installation
+see `package.json` for more detail on dependancies.
+
+##Installation
 
 (with ionic CLI installed)
 
-```
-git checkout
-```
-Update node packages
+After checkout, update node packages
 
 ```
 npm install
@@ -35,7 +29,7 @@ npm install
 Configure your firebase backend in `app.ts`
 
 ```
-npm install
+defaultFirebase('https://[your firebase project].firebaseio.com')
 ```
 
 Check
