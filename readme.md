@@ -11,7 +11,7 @@ Soon to be available branches:
 
 ---
 You are on the FIREBASE branch
-Pending the release of Firebase2 with SDK 3 of Firebase, the authentication providers will work only with 
+Pending the release of Firebase2 with SDK 3 of Firebase, the authentication providers will work only with projects created in the legacy console of firebase [https://ww.firebase.com]. (You can upgrade your project to the new console after creation and keep functionality).
 ---
 
 ###Configuration
@@ -22,13 +22,26 @@ Pending the release of Firebase2 with SDK 3 of Firebase, the authentication prov
 
 ###installation
 
+(with ionic CLI installed)
+
 ```
 git checkout
+```
+Update node packages
 
+```
 npm install
+```
+Configure your firebase backend in `app.ts`
 
+```
+npm install
+```
+
+Check
+
+```
 ionic serve
 ```
 
-Configure the app in `app.ts`
 
