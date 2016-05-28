@@ -6,7 +6,7 @@ Check branches for different authentication services implementations.
 ---
 You are on the FIREBASE branch.
 
-Pending the release of Firebase2 with SDK 3 of Firebase, the authentication providers will work only with projects created in the legacy console of firebase [https://www.firebase.com]. (You can upgrade your project to the new console after creation and keep functionality).
+***Pending the release of Firebase2 with SDK 3 of Firebase, the authentication providers will work only with projects created in the legacy console of firebase [https://www.firebase.com]. (You can upgrade your project to the new console after creation and keep functionality).
 
 ---
 
