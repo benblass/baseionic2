@@ -44,4 +44,7 @@ Check
 ionic serve
 ```
 
-
+###TODO
+- Major Reset Password function not implmemented
+- Minor Improve errors display
+- Minor Make use of the observable provided by angularfire instead of the manual EventEmitter to monitor authentication status changes
