@@ -18,7 +18,6 @@ export class LoginPage {
 			if (this.auth.isAuthenticated) {
 				this.nav.setRoot(TabsPage);
 			}
-
   }
 
   changeRootifAuth() {
