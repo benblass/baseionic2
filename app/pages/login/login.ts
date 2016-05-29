@@ -14,6 +14,7 @@ export class LoginPage {
 
   constructor(private auth: AuthService, private nav: NavController) {
   		this.auth.authStatusChange.subscribe(data => this.changeRootifAuth());
+      this.auth.errorObservable.subscribe((error) => this.onError(error));
 			if (this.auth.isAuthenticated) {
 				this.nav.setRoot(TabsPage);
 			}
@@ -28,12 +29,19 @@ export class LoginPage {
   	}
   }
 
+   login(credentials) {
+     this.auth.loginEmail(credentials)
+     .then()
+       .catch((error) => {
+         console.log('catched in login');
+         this.errorMessage = error;
+     });
+   }
+
   registerValidate(credentials) {
   	if (credentials.password1 == credentials.password2) {
   			credentials.password = credentials.password1;
-			this.auth.registerEmail(credentials)
-				.then()
-				.catch((error) => {this.errorMessage = error})
+			  this.auth.registerEmail(credentials)
   	} else {
   		this.errorMessage = "Passwords do not match..."
   	}
@@ -50,6 +58,10 @@ export class LoginPage {
 
   onInput() {
   	this.errorMessage = "";	
+  }
+
+  onError(error) {
+    this.errorMessage = error;
   }
 }
 
