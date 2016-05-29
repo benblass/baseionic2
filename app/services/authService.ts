@@ -8,11 +8,13 @@ import 'rxjs/Rx';
 export class AuthService {
 
 	public authStatusChange: EventEmitter<any>;
+	public authError: EventEmitter<any>;
 
 	isAuthenticated: boolean = false;
 
 	constructor(private http: Http) {
 		this.authStatusChange = new EventEmitter();
+		this.authError = new EventEmitter();
 	}
 
 	login(credentials) {
