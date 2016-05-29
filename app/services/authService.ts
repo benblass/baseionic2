@@ -9,8 +9,7 @@ import 'rxjs/Rx';
 export class AuthService {
 
 	public authStatusChange: EventEmitter<any>;
-	public errorObservable: Observable<any>;
-	private errorObserver: Observer<any>;
+	public authError: EventEmitter<any>;
 	
 	isAuthenticated: boolean = false;
 
@@ -18,9 +17,7 @@ export class AuthService {
 
 	constructor(private auth: FirebaseAuth) {
 		this.authStatusChange = new EventEmitter();
-		this.errorObservable = Observable.create((observer) => {
-			this.errorObserver = observer;
-		}).share();
+		this.authError = new EventEmitter();
 	}
 
 	loginEmail(credentials) {
@@ -33,8 +30,7 @@ export class AuthService {
 			this.isAuthenticated = true;
 			this.authStatusChange.next(true);
 		}).catch((error) => {
-			console.log('catched in service ', error);
-			this.errorObserver.next(error);
+			this.authError.next(error);
 		});
 	}
 
@@ -44,7 +40,7 @@ export class AuthService {
 				console.log(authData)
 				return this.loginEmail(credentials);
 			}).catch((error) => {
-				this.errorObserver.next(error);
+				this.authError.next(error);
 			});
 	}
 
@@ -55,5 +51,4 @@ export class AuthService {
 		this.isAuthenticated = false;
 		this.authStatusChange.next(true);
 	}
-	
 }

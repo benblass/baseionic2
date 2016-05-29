@@ -14,7 +14,7 @@ export class LoginPage {
 
   constructor(private auth: AuthService, private nav: NavController) {
   		this.auth.authStatusChange.subscribe(data => this.changeRootifAuth());
-      this.auth.errorObservable.subscribe((error) => this.onError(error));
+      this.auth.authError.subscribe((error) => this.onError(error));
 			if (this.auth.isAuthenticated) {
 				this.nav.setRoot(TabsPage);
 			}
