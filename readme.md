@@ -33,3 +33,4 @@ ionic serve
 ```
 
 ###TODO
+- Add error display on "Reset email" page
